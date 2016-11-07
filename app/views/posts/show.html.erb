@@ -15,5 +15,24 @@
   <%= @post.like %>
 </p>
 
+  <hr/>
+  <% form_for @comment do |f| %>
+    <%=f.error_messages %>
+    <%=f.hidden_field :post_id %>
+  
+    <p>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+    </p>
+    
+    <p>
+      <%=f.label :body %><br/>
+      <%=f.text_area :body %>
+    </p>
+    
+    <p>
+      <%= f.submit "Post Comment" %>
+    </p>
+  <% end %> 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
